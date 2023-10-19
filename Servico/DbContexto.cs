@@ -10,6 +10,8 @@ namespace api.Servicos
         public DbContexto(DbContextOptions<DbContexto> options): base(options)  { }
 
         public DbSet<Aluno> Alunos { get; set; }
+
+        public DbSet<Fornecedor> Fornecedores { get; set; }
     }
 
 }
