@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using api.Models;
 using api.Servicos;
+using EntityFrameworkPaginateCore;
 
 namespace mvc_entity.Controllers
 {
@@ -14,6 +15,7 @@ namespace mvc_entity.Controllers
     public class AlunosController : ControllerBase
     {
         private readonly DbContexto _context;
+        private const int QUANTIDADE_POR_PAGINA = 3;
 
         public AlunosController(DbContexto context)
         {
@@ -23,9 +25,10 @@ namespace mvc_entity.Controllers
         // GET: /alunos
         [HttpGet]
         [Route("/alunos/")]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
-              return StatusCode(200, await _context.Alunos.ToListAsync());
+              return StatusCode(200, await _context.Alunos.OrderBy(a => a.Id).PaginateAsync(page, QUANTIDADE_POR_PAGINA));
+            //   return StatusCode(200, await _context.Alunos.OrderByDescending(a => a.Id).PaginateAsync(page, QUANTIDADE_POR_PAGINA));
         }
 
         // GET: /alunos/5
