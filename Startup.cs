@@ -34,7 +34,11 @@ namespace api_desafio21dias
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "api_desafio21dias", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo {
+                     Title = "Web API desafio 21 dias",
+                     Version = "v2", 
+                     Description = "Primeira API Feita com aluos no desafio 21 dias" 
+                });
             });
         }
 
@@ -47,7 +51,7 @@ namespace api_desafio21dias
             }
         
             app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "api v1"));
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Primeira Web API Feita com alunos no desafio 21 dias"));
         
             app.UseHttpsRedirection();
 

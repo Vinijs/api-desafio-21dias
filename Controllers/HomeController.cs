@@ -8,6 +8,12 @@ namespace api.Controllers;
 public class HomeController : ControllerBase
 {
     
+    // [HttpGet]
+    // public ActionResult Index()
+    // {
+    //     return Redirect("/swagger");
+    // }
+
     [HttpGet]
     public HomeView Index()
     {
