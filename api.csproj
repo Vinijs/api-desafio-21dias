@@ -8,6 +8,8 @@
 
   <ItemGroup>
 
+    <PackageReference Include="EntityFrameworkCore.UseRowNumberForPaging" Version="0.4.0" />
+
     <PackageReference Include="EntityFrameworkPaginateCore" Version="2.1.0" />
 
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.10" />

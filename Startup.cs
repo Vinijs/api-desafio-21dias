@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using api.Servicos;
+using EntityFrameworkCore.UseRowNumberForPaging;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,7 +30,7 @@ namespace api_desafio21dias
         public void ConfigureServices(IServiceCollection services)
         {
             string strCnn = Configuration.GetConnectionString("MinhaConexao");
-            services.AddDbContext<DbContexto>(options => options.UseSqlServer(strCnn));
+            services.AddDbContext<DbContexto>(options => options.UseSqlServer(strCnn, builder => builder.UseRowNumberForPaging()));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

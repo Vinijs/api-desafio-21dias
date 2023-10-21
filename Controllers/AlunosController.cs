@@ -27,7 +27,13 @@ namespace mvc_entity.Controllers
         [Route("/alunos/")]
         public async Task<IActionResult> Index(int page = 1)
         {
-              return StatusCode(200, await _context.Alunos.OrderBy(a => a.Id).PaginateAsync(page, QUANTIDADE_POR_PAGINA));
+            //   var alunosPaginados = await _context.Alunos.OrderBy(a => a.Id)
+            //         .Skip((page - 1) * QUANTIDADE_POR_PAGINA)
+            //         .Take(QUANTIDADE_POR_PAGINA)
+            //         .ToListAsync();
+
+            //   return StatusCode(200, alunosPaginados);
+                 return StatusCode(200, await _context.Alunos.OrderBy(a => a.Id).PaginateAsync(page, QUANTIDADE_POR_PAGINA));
             //   return StatusCode(200, await _context.Alunos.OrderByDescending(a => a.Id).PaginateAsync(page, QUANTIDADE_POR_PAGINA));
         }
 

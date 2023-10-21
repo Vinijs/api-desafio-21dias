@@ -36,4 +36,5 @@
   dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 7.0.11
   dotnet add package Swashbuckle.AspNetCore --version 6.5.0
   dotnet add package EntityFrameworkPaginateCore --version 2.1.0
+  dotnet add package EntityFrameworkCore.UseRowNumberForPaging --version 0.4.0
 ```
