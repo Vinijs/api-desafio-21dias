@@ -1,3 +1,12 @@
+# Base de dados:
+#### Está aplicação foi criada por um DBA no exemplo da aula, por isso para utilizar a aplicação crie a estrutura usando o arquivo estrutura.sql na pasta do projeto
+
+``` bash
+  ls estrutura
+```
+
+
+
 # Comandos iniciais:
 ``` bash
   mkdir api
