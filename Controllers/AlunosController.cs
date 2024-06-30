@@ -8,10 +8,12 @@ using Microsoft.EntityFrameworkCore;
 using api.Models;
 using api.Servicos;
 using EntityFrameworkPaginateCore;
+using web_renderizacao_server_side.Helpers;
 
 namespace mvc_entity.Controllers
 {
     [ApiController]
+    [Logado]
     public class AlunosController : ControllerBase
     {
         private readonly DbContexto _context;

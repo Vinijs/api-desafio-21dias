@@ -7,10 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using api.Models;
 using api.Servicos;
+using web_renderizacao_server_side.Helpers;
 
 namespace mvc_entity.Controllers
 {
     [ApiController]
+    [Logado]
     public class FornecedoresController : ControllerBase
     {
         private readonly DbContexto _context;

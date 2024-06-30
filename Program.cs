@@ -16,6 +16,8 @@ namespace api_desafio21dias
             CreateHostBuilder(args).Build().Run();
         }
 
+        public static string AdministradorAPI = null;
+
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>

@@ -24,11 +24,26 @@ namespace api_desafio21dias
             Configuration = configuration;
         }
 
+        public string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                builder =>
+                                {
+                                    builder.WithOrigins("http://localhost:4200",
+                                                        "https://localhost:5009", 
+                                                        "https://www.torneseumprogramador.com.br")
+                                                        .AllowAnyHeader()
+                                                        .AllowAnyMethod();
+                                });
+            });
+
+            Program.AdministradorAPI = Configuration.GetConnectionString("AdministradorAPI");
             string strCnn = Configuration.GetConnectionString("MinhaConexao");
             services.AddDbContext<DbContexto>(options => options.UseSqlServer(strCnn, builder => builder.UseRowNumberForPaging()));
 
@@ -56,7 +71,11 @@ namespace api_desafio21dias
         
             app.UseHttpsRedirection();
 
+            app.UseCors(MyAllowSpecificOrigins);
+
             app.UseRouting();
+
+
 
             app.UseAuthorization();
 
